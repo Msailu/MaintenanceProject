@@ -66,20 +66,20 @@ axios
 
 
 // INTERCEPTING REQUESTS & RESPONSES
-axios.interceptors.request.use(
-    config => {
-      console.log(
-        `${config.method.toUpperCase()} request sent to ${
-          config.url
-        } at ${new Date().getTime()}`
-      );
+// axios.interceptors.request.use(
+//     config => {
+//       console.log(
+//         `${config.method.toUpperCase()} request sent to ${
+//           config.url
+//         } at ${new Date().getTime()}`
+//       );
   
-      return config;
-    },
-    error => {
-      return Promise.reject(error);
-    }
-  );
+//       return config;
+//     },
+//     error => {
+//       return Promise.reject(error);
+//     }
+//   );
 
 $(document).ready(function(){
     var date_input=$('input[name="date"]'); //our date input has the name "date"
