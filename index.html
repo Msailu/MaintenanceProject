@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apartmrnt Maintenance</title>
+   
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apartmrnt Maintenance</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <link
+      rel="stylesheet"
+      href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+    />
+    <!-- <link rel="stylesheet" href="./css/style.css"/>   -->
+  </head>
 
-  <!--Font Awesome (added because you use icons in your prepend/append)-->
-  <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
-  <!-- <link rel="stylesheet" href="./css/style.css"/>   -->
-  
-
-</head>
-
-<body>
-  <!-- <form  > -->
+  <body>
+    <!-- <form  > -->
     <div class="container-fluid">
       <h1 class="p-3 mb-2 bg-primary text-white text-center">Maintainence</h1>
       <div class="form-row my-5">
@@ -30,12 +37,20 @@
                  </i>
                 </div> -->
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fa fa-calendar "></i></span>
+              <span class="input-group-text"
+                ><i class="fa fa-calendar"></i
+              ></span>
             </div>
-            <input class="form-control" autocomplete="off" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+            <input
+              class="form-control"
+              autocomplete="off"
+              id="date"
+              name="date"
+              placeholder="MM/DD/YYYY"
+              type="text"
+            />
           </div>
         </div>
-
 
         <div class="form-group col-md-3">
           <!-- <label for="inputState">State</label> -->
@@ -47,47 +62,62 @@
         </div>
 
         <div class="form-group col-md-3">
-          <select id="subCatagory" name="subCatagoryName"  class="form-control">
+          <select id="subCatagory" name="subCatagoryName" class="form-control">
             <option selected>Choose SubCatagory..</option>
           </select>
         </div>
 
         <div class="form-group col-md-3">
           <!-- <label for="inputCity">City</label> -->
-          <input type="text" class="form-control" id="amount" autocomplete="off" placeholder="Amount here">
+          <input
+            type="text"
+            class="form-control"
+            id="amount"
+            autocomplete="off"
+            placeholder="Amount here"
+          />
         </div>
       </div>
 
       <div class="row">
         <div class="col text-center">
           <!-- <button class="btn btn-primary my-3" id="submitBtn">SubmitA</button> -->
-          <input class="btn btn-primary" type="submit" value="Submit" id="submitBtn">
+          <input
+            class="btn btn-primary"
+            type="submit"
+            value="Submit"
+            id="submitBtn"
+          />
         </div>
       </div>
+    </div>
+    <!-- End of container div-->
 
-    </div><!-- End of container div-->
+    <!-- </form> -->
+     <!-- Include Axios-->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-  <!-- </form> -->
-  <!-- Include jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
+    <!-- Include jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
 
-  
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-  </script>
-
-  <!-- Include Date Range Picker -->
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <!-- Include Axios-->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Include Date Range Picker -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"
+    ></script>
+   
+    <script type="text/javascript" src="js/main.js"></script>
 
 
-  <script type="text/javascript" src="./js/main.js"></script>
-  
-</body>
+  </body>
 </html>
-
