@@ -1,6 +1,3 @@
-// axios.defaults.headers.common['X-Auth-Token'] =
-//    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
-
 //Constants for Category and subCatagory
 const income = ['Choose catagory..', 'Maintenance', 'water', 'Settle Court Rent', 'FD Interest Amount'];
 const expenditure = ['Choose catagory..', 'Security Salary', 'Gardener Salary', 'Admin Salary', 'Panjayathu Maintenance', 'Electricity Board', 'Infrastructure', 'Regular Maintenance'];
@@ -14,16 +11,18 @@ $("#submitBtn").on("click", () => {
   let totalRows = $('.table-data tr').length;
   console.log("totalRows....");
   console.log(totalRows);
+  
   let tableDataIntoArray = [];
-  for (i = 0; i < totalRows; i++) {
-    //let rowIndex=($('.table-data tr').index());
-    //console.log(rowIndex);
-    let date = $(`#date_${i}`).val();
-    let category = $(`#catagory_${i}`).val();
-    let subcategory = $(`#subCatagory_${i}`).val();
-    let details = $(`#details_${i}`).val();
-    let amount = $(`#amount_${i}`).val();
-    console.log(date);
+
+  $('table >  tr').each(function(index, tr) { 
+    console.log('------------------')
+    console.log(index);
+    let rowIndex = (tr.id).slice(3);
+    let date = $(`#date_${rowIndex}`).val();
+    let category = $(`#catagory_${rowIndex}`).val();
+    let subcategory = $(`#subCatagory_${rowIndex}`).val();
+    let details = $(`#details_${rowIndex}`).val();
+    let amount = $(`#amount_${rowIndex}`).val();
     let data = {
       date,
       category,
@@ -33,11 +32,13 @@ $("#submitBtn").on("click", () => {
     };
     console.log(data);
     tableDataIntoArray.push(data);
-  }
+   
+ });
   console.log(tableDataIntoArray);
-  console.log('convert to jSON.....');
-  console.log(JSON.stringify(tableDataIntoArray));
+  //convert array into JSON
   let data = JSON.stringify(tableDataIntoArray);
+  console.log('JSON.....');
+  console.log(data);
   //End here
 
 
@@ -58,7 +59,7 @@ $("#submitBtn").on("click", () => {
 }); // Ends of onClick event submit button 
 
 
-//Jquet code for the datepicker
+//Jquery code for the datepicker
 $(document).ready(function () {
   $(".table-data").append(renderNewRow(0));
   let date_input = $('input[name="date_0"]'); //our date input has the name "date"
@@ -94,7 +95,7 @@ function renderNewRow(index) {
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fa fa-calendar "></i></span>
             </div>
-            <input class="form-control datepick" autocomplete="off" id="date_${index}" name="date_${index}" placeholder="MM/DD/YYYY" type="text" />
+            <input class="form-control datepick" autocomplete="off" id="date_${index}" name="date_${index}" placeholder="MM/DD/YYYY" type="text"/>
           </div>
         </td>
         <td>
@@ -110,7 +111,7 @@ function renderNewRow(index) {
           </select>
         </td>
         <td><input type="text" class="form-control" name ="details_${index}" id="details_${index}" autocomplete="off" placeholder="Details Of Income here"></td>
-        <td><input type="text" class="form-control" id="amount_${index}" autocomplete="off" placeholder="Amount here"></td>
+        <td><input type="text" class="form-control" id="amount_${index}" autocomplete="off" placeholder="Amount here" ></td>
         <td> 
        
           <i class="fas fa-trash delete" id="trash_${index}"></i>
